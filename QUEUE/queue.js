@@ -75,29 +75,31 @@ return val;
  * 
  */
 
-const fileAttenteJeu = new Queue();
+// const fileAttenteJeu = new Queue();
 
-// Les joueurs rejoignent la file
-fileAttenteJeu.enqueue("Player_Alpha");
-fileAttenteJeu.enqueue("Gamer_X");
-fileAttenteJeu.enqueue("Pro_Noob");
+// // Les joueurs rejoignent la file
+// fileAttenteJeu.enqueue("Player_Alpha");
+// fileAttenteJeu.enqueue("Gamer_X");
+// fileAttenteJeu.enqueue("Pro_Noob");
 
-function lancerPartie() {
-    // On vérifie s'il y a au moins 2 joueurs disponibles
-    if (fileAttenteJeu.size >= 2) {
-        const joueur1 = fileAttenteJeu.dequeue();
-        const joueur2 = fileAttenteJeu.dequeue();
-        console.log(`🎮 Match lancé ! ${joueur1} VS ${joueur2}`);
-    } else {
-        console.log("⏳ Pas assez de joueurs. En attente...");
-    }
-}
+// function lancerPartie() {
+//     // On vérifie s'il y a au moins 2 joueurs disponibles
+//     if (fileAttenteJeu.size >= 2) {
+//         const joueur1 = fileAttenteJeu.dequeue();
+//         const joueur2 = fileAttenteJeu.dequeue();
+//         console.log(`🎮 Match lancé ! ${joueur1} VS ${joueur2}`);
+//     } else {
+//         console.log("⏳ Pas assez de joueurs. En attente...");
+//     }
+// }
 
-lancerPartie(); 
-// 🖥️ Affiche : "🎮 Match lancé ! Player_Alpha VS Gamer_X"
+// lancerPartie(); 
+// // 🖥️ Affiche : "🎮 Match lancé ! Player_Alpha VS Gamer_X"
 
-console.log(`Joueur restant dans la file : ${fileAttenteJeu.peek()}`);
-// 🖥️ Affiche : "Joueur restant dans la file : Pro_Noob"
+// console.log(`Joueur restant dans la file : ${fileAttenteJeu.peek()}`);
+// // 🖥️ Affiche : "Joueur restant dans la file : Pro_Noob"
 
-lancerPartie(); 
-// 🖥️ Affiche : "⏳ Pas assez de joueurs. En attente..." (Car Pro_Noob est tout seul)
+// lancerPartie(); 
+// // 🖥️ Affiche : "⏳ Pas assez de joueurs. En attente..." (Car Pro_Noob est tout seul)
+
+
