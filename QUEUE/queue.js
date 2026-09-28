@@ -103,3 +103,61 @@ return val;
 // // 🖥️ Affiche : "⏳ Pas assez de joueurs. En attente..." (Car Pro_Noob est tout seul)
 
 
+
+
+function bfs(graph , start) {
+    const visited = new Set([start])
+
+    const queue = new Queue()
+    queue.enqueue(start);
+
+
+    while(!queue.isEmpty()) {
+        const node = queue.dequeue();
+        console.log(node)
+
+        for(const neighbor of graph[node]) {
+            if(!visited.has(neighbor)){
+                visited.add(neighbor)
+                queue.enqueue(neighbor)
+            }
+        }
+    }
+}
+
+
+function maxSlidingWindow(nums, k) {
+  const deque = []; // stocke des indices
+  const result = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    while (deque.length && deque[0] <= i - k) deque.shift(); // sort les indices hors fenêtre
+    while (deque.length && nums[deque[deque.length - 1]] < nums[i]) deque.pop();
+    deque.push(i);
+    if (i >= k - 1) result.push(nums[deque[0]]);
+  }
+  return result;
+}
+
+
+function levelOrder(root) {
+  if (!root) return [];
+  const result = [];
+  const queue = new Queue();
+  queue.enqueue(root);
+
+  while (!queue.isEmpty()) {
+    const levelSize = queue.size;
+    const level = [];
+    for (let i = 0; i < levelSize; i++) {
+      const node = queue.dequeue();
+      level.push(node.val);
+      if (node.left) queue.enqueue(node.left);
+      if (node.right) queue.enqueue(node.right);
+    }
+    result.push(level);
+  }
+  return result;
+}
+
+
