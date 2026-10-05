@@ -80,23 +80,64 @@ console.log(m.next(5)) // 6
  */
 
 
-class RecentCounter {
+// class RecentCounter {
 
 
-    constructor(){
-        this.queue = new Queue()
-    }
+//     constructor(){
+//         this.queue = new Queue()
+//     }
 
 
-    ping(t) {
-        this.queue.enqueue(t)
+//     ping(t) {
+//         this.queue.enqueue(t)
 
-        while(this.queue.peek() < t - 3000 ) {
-            this.queue.dequeue()
+//         while(this.queue.peek() < t - 3000 ) {
+//             this.queue.dequeue()
 
+//         }
+
+
+//         return this.queue.size
+//     }
+// }
+
+
+// const c = new RecentCounter();
+
+// console.log(c.ping(1))
+// console.log(c.ping(100))
+// console.log(c.ping(3001))
+// console.log(c.ping(3002))
+
+
+
+/********* */
+
+function levelOrder(root) {
+    if(!root) return [];
+
+    const result = []
+    const queue = new Queue()
+
+    queue.enqueue(root)
+
+    while(!queue.isEmpty()) {
+        const levelSize = queue.size
+        const level = [];
+
+
+        for(let i = 0 ; i < levelSize ; i++) {
+            const node = queue.dequeue()
+
+            level.push(node.val);
+
+    if (node.left) queue.enqueue(node.left);
+    if (node.right) queue.enqueue(node.right);
         }
 
-
-        return this.queue.size
+        result.push(level)
     }
+
+
+    return result
 }
